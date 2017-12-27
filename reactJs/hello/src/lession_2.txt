@@ -1,0 +1,33 @@
+import React from 'react';
+import ReactDom from 'react-dom';
+import './index.css';
+
+class TopNavigation extends React.Component{
+	constructor(){
+		super();
+		this.state = {
+			name: 'Pankaj'
+		}
+	}
+
+
+	render(){
+		return (
+				<ul>
+					<TopNavigationItem detail={this.state.name}/>
+				</ul>
+			) 
+		}
+	}
+
+class TopNavigationItem extends React.Component{
+	render(){
+		return(
+			<li>
+				{this.props.detail}
+			</li>
+		)
+	}
+}
+
+ReactDom.render( <TopNavigation/> , document.getElementById('root'))
