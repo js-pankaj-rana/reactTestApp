@@ -1,0 +1,40 @@
+import React from 'react';
+import ReactDom from 'react-dom';
+import './index.css';
+
+class TopNavigation extends React.Component{
+	constructor(){
+		super();
+		this.state = {
+			names: ['Pankaj', 'Sudhir', 'Ramesh', 'Raju', 'Ganesh']
+		}
+	}
+
+
+	render(){
+		return (
+				<ul>
+				{
+					this.state.names.map( function(name, index, id) {
+					 	return <TopNavigationItem key={index} detail={name} />
+					})
+
+				}
+				</ul>
+			) 
+		}
+	}
+
+
+class TopNavigationItem extends React.Component{
+	render(){
+		return(
+			<li>
+				{this.props.detail}
+			</li>
+		)
+	}
+}
+
+
+ReactDom.render( <TopNavigation/> , document.getElementById('root'))

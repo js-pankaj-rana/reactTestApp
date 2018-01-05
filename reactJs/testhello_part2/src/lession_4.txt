@@ -1,0 +1,67 @@
+import React from 'react';
+import ReactDom from 'react-dom';
+import './index.css';
+
+class TopNavigation extends React.Component{
+
+	constructor(){
+		super();
+		this.chanagStatus = this.chanagStatus.bind(this);
+		this.state = {
+			names: ['Pankaj', 'Sudhir', 'Ramesh', 'Raju', 'Ganesh'],
+			tasks: [{
+				name: 'Butter Milk',
+				completed:false 
+			},{
+				name: 'Buy Cheese',
+				completed:false 
+			},{
+				name: 'Buy Bread',
+				completed:false 
+			},{
+				name: 'Buy Vegitable',
+				completed:false 
+			},{
+				name: 'Buy Bread',
+				completed:false 
+			}]
+		}
+	}
+
+	chanagStatus(index){
+		var tasks = this.state.tasks;
+		var task = tasks[index];
+
+		task.completed = !task.completed;
+
+		this.setState({
+			tasks: tasks
+		})
+	}
+	render(){
+		return (
+				<ul>
+				{
+					this.state.tasks.map( (task, index) => {
+					 	return <TopNavigationItem  clickHandler={this.chanagStatus} index={index} detail={task} key={index} />
+					})
+
+				}
+				</ul>
+			) 
+		}
+	}
+
+
+class TopNavigationItem extends React.Component{
+	render(){
+		return(
+			<li onClick={() => {this.props.clickHandler(this.props.index) } } className={this.props.detail.completed ? 'completed' : 'nocomplete' }>
+				{this.props.detail.name}
+			</li>
+		)
+	}
+}
+
+
+ReactDom.render( <TopNavigation/> , document.getElementById('root'))
