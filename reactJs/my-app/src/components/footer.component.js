@@ -4,8 +4,38 @@ class Footer extends Component {
      super();
 
       this.state = {
-          companybio: 'asdfasdfas',
-          companycpright: 'ehhl',
+          footer:[],
+          talkWithUs: [{
+                  linkLabel: 'Complaints',
+                  linkTo:'/complaint'
+                },{
+                  linkLabel: 'Reviews and Rate',
+                  linkTo:'/reviewsnrate'
+                },{
+                  linkLabel: 'Need Assistant',
+                  linkTo:'/assistant'
+                },{
+                  linkLabel: 'Web Difficulties',
+                  linkTo:'/complaint'
+                }],
+          utilityLink: [{
+                  linkLabel: 'Products',
+                  linkTo:'/products'
+                },
+                {
+                  linkLabel: 'Customer support',
+                  linkTo:'/support'
+                },
+                {
+                  linkLabel: 'Showrooms',
+                  linkTo:'/stores'
+                },
+                {
+                  linkLabel: 'ranasteelco.com',
+                  linkTo:'http://www.ranasteelco.com'
+                }
+                ]
+
         }
   }
    
@@ -25,18 +55,16 @@ class Footer extends Component {
               <h5 className="white-text">Utility</h5>
               <ul>
                 <li><a className="white-text" href="/products">Products</a></li>
-                <li><a className="white-text" href="/support">Customer support</a></li>
-                <li><a className="white-text" href="/stores">Showrooms</a></li>
+                <li><a className="white-text" href="">Customer support</a></li>
+                <li><a className="white-text" href="">Showrooms</a></li>
                 <li><a className="white-text" href="http://ranasteelco.com">ranasteelco.com</a></li>
               </ul>
             </div>
             <div className="col l3 s12">
               <h5 className="white-text">Talk with us</h5>
               <ul>
-                <li><a className="white-text" href="#!">Complaints</a></li>
-                <li><a className="white-text" href="#!">Reviews</a></li>
-                <li><a className="white-text" href="#!">Need Assisitant</a></li>
-                <li><a className="white-text" href="#!">Web Difficulties</a></li>
+                <li><a className="white-text" href="#1">Complaints</a></li>
+                
               </ul>
             </div>
           </div>

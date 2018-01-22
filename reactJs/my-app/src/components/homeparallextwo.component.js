@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 class Homeparallextwo extends Component {
   render() {
+    let imageUrl = './images/background3.jpg'
     let opacity = {
-      'opacity': '1'
+          'opacity': '1'
      }
     return (
        <div className="parallax-container valign-wrapper">
@@ -14,7 +15,7 @@ class Homeparallextwo extends Component {
             </div>
           </div>
           <div className="parallax">
-            <img src="images/background2.jpg" alt="Unsplashed background img 2" style={opacity} />
+            <img src={imageUrl} alt="Unsplashed background img 2" style={opacity} />
           </div>
         </div>
         )

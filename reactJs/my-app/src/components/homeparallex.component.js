@@ -3,7 +3,7 @@ import {Parallax} from 'react-materialize'
 
 class Homeparallex extends Component {
   render() {
-    let imageUrl = './images/metallic-image2.jpg'
+    let imageUrl = './images/background2.jpg'
     let opacity = {
       'opacity': 1
     }
@@ -19,7 +19,7 @@ class Homeparallex extends Component {
             </div>
           </div>
           <div className="parallax">
-            <img src="images/background2.jpg" alt="Unsplashed background img 2" style={opacity} />
+            <img src={imageUrl} alt="Unsplashed background img 2" style={opacity} />
           </div>
         </div>
 
