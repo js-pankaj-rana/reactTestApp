@@ -4,7 +4,8 @@ class Footer extends Component {
      super();
 
       this.state = {
-          footer:[],
+          goalMsg: 'The Louvre for us is a wonderful experience. Because it continues; we didn\'t get cut off. It was actually a continuous involvement all the way to build a best quality and solid meterial for customer, and a lot of seller have come into the market and gone, come and gone; but We are still here.',
+          copyRight: 'All Rights Reserved. \u00A9 Copyright 2018',
           talkWithUs: [{
                   linkLabel: 'Complaints',
                   linkTo:'/complaint'
@@ -27,8 +28,8 @@ class Footer extends Component {
                   linkTo:'/support'
                 },
                 {
-                  linkLabel: 'Showrooms',
-                  linkTo:'/stores'
+                  linkLabel: 'Know our branch',
+                  linkTo:'/branch'
                 },
                 {
                   linkLabel: 'ranasteelco.com',
@@ -40,8 +41,7 @@ class Footer extends Component {
   }
    
   render() {
-    const data = this.state.companybio;
-
+    const data = this.state;
     return (
 
         <footer className="page-footer teal">
@@ -49,29 +49,32 @@ class Footer extends Component {
           <div className="row">
             <div className="col l6 s12">
               <h5 className="white-text">Our Goal</h5>
-              <p className="grey-text text-lighten-4">The Louvre for us is a wonderful experience. Because it continues; we didn't get cut off. It was actually a continuous involvement all the way to build a best quality and solid meterial for customer, and a lot of seller have come into the market and gone, come and gone; but We are still here.</p>
+              <p className="grey-text text-lighten-4">{data.goalMsg}</p>
         </div>
             <div className="col l3 s12 offset-m2">
               <h5 className="white-text">Utility</h5>
               <ul>
-                <li><a className="white-text" href="/products">Products</a></li>
-                <li><a className="white-text" href="">Customer support</a></li>
-                <li><a className="white-text" href="">Showrooms</a></li>
-                <li><a className="white-text" href="http://ranasteelco.com">ranasteelco.com</a></li>
+                {
+                  this.state.utilityLink.map( function(link, index, id) {
+                    return <Utilitylink key={index} label={link.linkLabel} anchorLink={link.linkTo}  />
+                  })
+                  }
               </ul>
             </div>
             <div className="col l3 s12">
               <h5 className="white-text">Talk with us</h5>
-              <ul>
-                <li><a className="white-text" href="#1">Complaints</a></li>
-                
+              <ul>{
+                  this.state.talkWithUs.map( function(link, index, id) {
+                    return <Talkwithus key={index} label={link.linkLabel} anchorLink={link.linkTo}  />
+                  })
+                  }
               </ul>
             </div>
           </div>
         </div>
         <div className="footer-copyright">
           <div className="container">
-              All Rights Reserved. &copy; Copyright 2018 <a className="brown-text text-lighten-3" href="http://www.ranasteelco.com">Rana Steel Company Pvt. Limited.</a>
+              {data.copyRight} <a className="brown-text text-lighten-3" href="http://www.ranasteelco.com">Rana Steel Company Pvt. Limited.</a>
           </div>
         </div>
       </footer>
@@ -79,6 +82,28 @@ class Footer extends Component {
     );
   }
 }
+
+class Talkwithus extends React.Component{
+  render(){
+    return(
+      <li>
+        <a className="white-text" href={this.props.anchorLink}>{this.props.label}</a>
+      </li>
+    )
+  }
+}
+
+
+class Utilitylink extends React.Component{
+  render(){
+    return(
+      <li>
+        <a className="white-text" href={this.props.anchorLink}>{this.props.label}</a>
+      </li>
+    )
+  }
+}
+
 
 export default Footer;
 

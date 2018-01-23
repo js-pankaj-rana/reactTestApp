@@ -8,9 +8,9 @@ class Homeaboutus extends Component {
         <div className="row">
           <div className="col s12 center">
             <h3><i className="mdi-content-send brown-text"></i></h3>
-            <h4>Glance</h4>
+            <h4>About Us</h4>
               <p className="left-align light">
-                  Since 1986, Rana Steel Company in Giridih, Jharkhand State has been in the business for retailing or only for the customer end sale.   
+                  Since 1986, Rana Steel Company in Giridih, Jharkhand State has been in the business for multiple type of almirah retailing services.
               </p>
               <p className="left-align light">
                   This deals primarily stocks and retails almirah for homes and households. It also deals in official furnishings Almirah for commercial spaces and business establishments. 

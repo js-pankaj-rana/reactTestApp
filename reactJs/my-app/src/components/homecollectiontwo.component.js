@@ -16,7 +16,7 @@ class Homecollectiontwo extends Component {
     <div className="container">    
       <div className="row  mt-20">
         <div className="col s12 m4">
-          <div className="card large">
+          <div className="card large hoverable">
             <div className="card-image">
               <img src={img.imageOne} alt="images" />
             </div>
@@ -31,7 +31,7 @@ class Homecollectiontwo extends Component {
           </div>
         </div>
       <div className="col s12 m4">
-          <div className="card large">
+          <div className="card large hoverable">
             <div className="card-image">
               <img src={img.imageTwo} alt="images" />
             </div>
@@ -46,7 +46,7 @@ class Homecollectiontwo extends Component {
           </div>
           </div>
          <div className="col s12 m4">
-          <div className="card large">
+          <div className="card large hoverable">
             <div className="card-image">
               <img src={img.imageThree} alt="images" />
             </div>
