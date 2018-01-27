@@ -28,11 +28,13 @@ class TopNavigationItem extends React.Component {
 		console.log('Edit Item')
 	}
 
-	formRender(){
+	formRender(props){
+		const newValue = {this.input.value}
+		console.log(newValue);
 		return(
-			<form>
+			<form onSubmit={this.props.updateItem}>
 				<input type="text" defaultValue={this.props.detail.name} />
-				<button onClick="this.updateItem()">Update Item</button>
+				<button type="submit">Update Item</button>
 			</form>
 			)
 		}

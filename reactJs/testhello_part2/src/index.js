@@ -20,6 +20,8 @@ class TopNavigation extends React.Component{
 		this.deleteTask = this.deleteTask.bind(this);
 
 		this.updateTask = this.updateTask.bind(this);
+		this.updateItem = this.updateItem.bind(this);
+
 		this.state = {
 			names: ['Pankaj', 'Sudhir', 'Ramesh', 'Raju', 'Ganesh'],
 			tasks: [{
@@ -170,6 +172,17 @@ class TopNavigation extends React.Component{
 		)
 	}
 
+ updateItem(index){
+
+		const {tasks} = this.state;
+		tasks[index].name = this.name
+		this.setState({
+			tasks
+		})
+		this.toggleState();
+	};
+
+
 	chanagStatus(index){
 		var tasks = this.state.tasks;
 		var task = tasks[index];
@@ -201,6 +214,7 @@ class TopNavigation extends React.Component{
 							 				detail={task}
 							 				key={index}
 							 				deleteTask={this.deleteTask}
+							 				updateItem={this.updateItem}
 							 				/>
 								})
 							}
