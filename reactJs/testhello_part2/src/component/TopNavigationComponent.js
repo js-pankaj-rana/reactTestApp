@@ -1,0 +1,73 @@
+import React from 'react';
+
+class TopNavigationItem extends React.Component {
+	constructor(props){
+		super(props);
+		this.updateItem = this.updateItem.bind(this);
+		this.editItem = this.editItem.bind(this);
+		this.formRender = this.formRender.bind(this);
+		this.listItemRender = this.listItemRender.bind(this);
+
+		this.state = {
+			isActive: false
+			}
+		}
+
+	toggleState(){
+		const {isActive} = this.state;
+		this.setState({
+			isActive: !this.state.isActive
+		})
+	}
+
+	updateItem(){
+		console.log('Update Item')
+	};
+	editItem(){
+		this.toggleState();
+		console.log('Edit Item')
+	}
+
+	formRender(){
+		return(
+			<form>
+				<input type="text" defaultValue={this.props.detail.name} />
+				<button onClick="this.updateItem()">Update Item</button>
+			</form>
+			)
+		}
+
+	listItemRender(){
+		return(
+			<li onClick={ () => {
+			 	this.props.clickHandler(this.props.index);
+			 	 }
+			 	}
+			 	className={ this.props.detail.completed ? 'completed' : 'nocomplete' } >
+				{this.props.detail.name}
+				<a className="btn btn-danger" onClick={ (event) => {
+						event.stopPropagation();
+			 			this.props.deleteTask(this.props.index);
+			 	 }
+			 	}>X</a>
+
+			 	&nbsp;&nbsp;<a className="btn btn-danger" onClick={ (event) => {
+			 		event.stopPropagation();
+			 		this.editItem() 
+			 		} }>edit</a>
+				</li>
+			)
+	}	
+
+	render(){
+		const isActive = this.state.isActive;
+		return (
+			<section>
+			{isActive ? this.formRender() : this.listItemRender() }
+			</section>
+			)
+		}
+	}
+
+
+export default TopNavigationItem;
